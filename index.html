@@ -1,135 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-     <link rel="shortcut icon" type="image/x-icon" href="assets/iProwhite.png" />
-    
-  </head>
-  <body>
-    <div id="particles-js"></div>
-
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login-style.css">
+</head>
+<body>
     <div class="container">
-      <div class="rei-image">
-        <img src="assets/iProwhite.png" />
-        
-      </div>
-
-      <div class="buttons-container">
-        <a href="propeople.html">
-          <div class="tiktok-btn">
-            <img src="assets/propeople1.png" />
-          
-          </div>
-        </a>
-        </a>
-        <a
-          href="procanteen.html"
-          ><div class="whatsapp-btn">
-            <img src="assets/Pro-Canteen (White).png" />
-            
-          </div>
-        </a>
-        <a href="propupil.html">
-          <div class="tiktok-btn">
-            <img src="assets/Pro Pupil (white).png" />
-          
-          </div>
-        </a>
-        <a
-          href="proschool.html"
-          ><div class="whatsapp-btn">
-            <img src="assets/Pro-School (White).png" />
-            
-          </div>
-        </a>
-        <a
-          href="proparking.html"
-          ><div class="whatsapp-btn">
-            <img src="assets/ipro parking-white.png" />
-            
-          </div>
-        </a>
-        <a
-          href="provisit.html"
-          ><div class="whatsapp-btn">
-            <img src="assets/Pro-Visit (White).png" />
+        <img src="assets/iProblack.png" alt="Company Logo" class="company-logo">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
             </div>
-        </a>
-        <a
-          href="prosales.html"
-          ><div class="whatsapp-btn">
-            <img src="assets/prosales11.png" />
-          </div>
-        </a>
-        <a
-          href="probiz.html"
-          ><div class="whatsapp-btn">
-            <img src="assets/Pro-Biz (white).png" />
-          </div>
-        </a>
-        <a
-          href="proticket.html"
-          ><div class="whatsapp-btn">
-            <img src="assets/Pro-Ticket (White).png" />
-          </div>
-        </a>
-        <a
-          href="protask.html"
-          ><div class="whatsapp-btn">
-            <img src="assets/Pro-Task (White).png" />
-            
-          </div>
-        </a>
-        <a
-          href="proproject.html"
-          ><div class="whatsapp-btn">
-            <img src="assets/Pro - Project (white).png" />
-            
-          </div>
-        </a>
-        <a
-          href="proassure.html"
-          ><div class="whatsapp-btn">
-            <img src="assets/Pro-Assure (white) (1).png" />
-            
-          </div>
-        </a>
-        
-        
-        
-      </div>
-
-      <div class="social-container">
-        <a
-          href="https://www.instagram.com/iproatsolutions/"
-          ><img src="assets\insta.png"
-        /></a>
-        <a href="https://www.linkedin.com/company/iproat-solutions/"
-          ><img src="assets\linkedin.png"
-        /></a>
-        <a href="mailto:info@iproat.com"
-          ><img src="assets/icons8-email-48.png"
-        /></a>
-        </div>
-        
-        <a href="login.html" class="logout-button">Logout</a>
-      
-
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p id="errorMessage" class="error-message"></p>
     </div>
-    <script src="./particles.js"></script>
-    <script src="./script.js"></script>
+
     <script>
-      // Check if the user has logged out and redirect if needed
-      window.onload = function () {
-          if (sessionStorage.getItem('loggedOut') === 'true') {
-              // Redirect to another page, e.g., login page
-              window.location.href = 'login.html';
-          }
-      };
-  </script>
-  
-  </body>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get the username and password from the form
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Check against the provided username and password
+            if (username === "iproatlink" && password === "ipro@123") {
+                // Redirect to the index page
+                window.location.href = "home.html";
+            } else {
+                // Display an error message
+                document.getElementById("errorMessage").textContent = "Invalid username or password. Please try again.";
+            }
+        });
+    </script>
+</body>
 </html>
